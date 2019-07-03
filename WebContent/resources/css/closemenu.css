@@ -1,0 +1,63 @@
+@media ( min-width : 992px) {
+	.navbar-expand-lg .navbar-toggler {
+		display: block;
+	}
+}
+
+@media ( max-width : 1439px) {
+	.sidebar, .off-canvas-sidebar nav .navbar-collapse {
+		position: fixed;
+		display: block;
+		top: 0;
+		height: 100vh;
+		width: 260px;
+		right: 0;
+		left: auto;
+		z-index: 1032;
+		visibility: visible;
+		background-color: #9A9A9A;
+		overflow-y: visible;
+		border-top: none;
+		text-align: left;
+		padding-right: 0px;
+		padding-left: 0;
+		-webkit-transform: translate3d(260px, 0, 0);
+		transform: translate3d(260px, 0, 0);
+		transition: all 0.33s cubic-bezier(0.685, 0.0473, 0.346, 1);
+	}
+	.main-panel {
+		width: 100%;
+	}
+	.nav-open .off-canvas-sidebar .navbar-collapse, .nav-open .sidebar {
+		-webkit-transform: translate3d(0, 0, 0);
+		transform: translate3d(0, 0, 0);
+	}
+	.ps-container {
+		touch-action: auto;
+		overflow: hidden !important;
+		-ms-overflow-style: none;
+	}
+	.nav-open .main-panel, .nav-open .wrapper-full-page, .nav-open .navbar .container .navbar-toggler,
+		.nav-open .navbar .container .navbar-wrapper, .nav-open .navbar .container
+		{
+		left: 0;
+		-webkit-transform: translate3d(-260px, 0, 0);
+		transform: translate3d(-260px, 0, 0);
+	}
+	.navbar-toggler:focus, .navbar-toggler:hover {
+		text-decoration: none;
+	}
+	.close-layer {
+		height: 100%;
+		width: 100%;
+		position: absolute;
+		opacity: 1 !important;
+		top: 0;
+		left: auto;
+		background: rgba(0, 0, 0, 0.35);
+		content: "";
+		z-index: 9999;
+		overflow-x: hidden;
+		transition: all 370ms ease-in;
+	}
+}

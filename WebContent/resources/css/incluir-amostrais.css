@@ -1,0 +1,30 @@
+div.dataTables_wrapper {
+	width: 100%;
+	padding: 1% !important;
+}
+#upload-arquivos{
+	background: transparent;
+}
+td{
+	padding: 4px !important;
+	font-size: 14px;
+}
+th{
+	padding: 6px !important;
+	font-size: 15px;
+}
+.modal-body{
+	padding: 1% !important;
+	padding-top: 0px !important;
+	padding-bottom: 0px !important;
+}
+.sorting_disabled{
+	width: 0px !important;
+	height: 0px !important;
+	padding: 0px !important;
+	padding-left: 4px !important;
+	padding-right: 4px !important;
+}
+.odd{
+	background-color: rgba(173, 189, 201, 0.5) !important;
+}
