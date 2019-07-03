@@ -26,7 +26,9 @@
 	Área Destinada: <input type="text" id="areaDestinada" />
 	Gestor: <input type="text" id="gestor" />
 	
-	<input type="button" id="btnSubmit" value="Criar" />
+	<input type="button" id="btnCriar" value="Criar" />
+	<input type="button" id="btnPesquisar" value="Pesquisar" />
+	
 </form>
 
 <script src='<c:url value="/resources/js/jquery.min.js"></c:url>'></script>

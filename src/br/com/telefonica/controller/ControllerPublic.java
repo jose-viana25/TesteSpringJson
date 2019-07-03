@@ -1,10 +1,11 @@
 package br.com.telefonica.controller;
 
+import java.util.ArrayList;
+import java.util.List;
 
-import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -14,43 +15,49 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.google.gson.Gson;
 
 import br.com.telefonica.entity.Ticket;
-import br.com.telefonica.main.MainContext;
 
 @Controller
 public class ControllerPublic {
-	
-	ApplicationContext context = new AnnotationConfigApplicationContext(MainContext.class);
 	
 	@RequestMapping(value="/index")
 	public String chamaIndex() {
 		return "public/index";
 	}
 	
-	@ResponseBody
+	//@ResponseBody
 	@RequestMapping(value="/criarTicket", method=RequestMethod.POST)
-	public void criarTicket(@RequestBody Ticket ticket, HttpServletRequest request) {
-	
-		System.out.println();
+	public void criarTicket(@RequestBody Ticket ticket, HttpServletResponse response) {
 		
-		
-		
-		
-		System.out.println(new Gson().toJson(ticket));
-		
-		/*IControllerTicket ctrTicket = context.getBean("controllerTicket", ControllerTicket.class);
+		IControllerTicket ctrTicket = new ControllerTicket();
 		
 		try {
 			ctrTicket.cadastrar(ticket);
 		} catch (ControllerException e) {
 			e.printStackTrace();
-		}*/
+		}
+		
+		response.setStatus(200);
 		
 	}
 	
-	@RequestMapping(value="/pesquisarTicket")
-	public void pesquisarTicket(@RequestBody Ticket ticket) {
-		System.out.println("pesquisar");
-	}
+	
+	//@RequestMapping(value="/pesquisarTicket", method=RequestMethod.GET, produces=MediaType.APPLICATION_JSON_UTF8_VALUE)
+	/*@ResponseBody
+	public List<Ticket> pesquisarTicket(@RequestBody Ticket ticket, HttpServletResponse response) {
+		
+		IControllerTicket ctrTicket = new ControllerTicket();
+		List<Ticket> listResultado = new ArrayList<>();
+		try {
+			listResultado = ctrTicket.pesquisar(ticket);
+		} catch (ControllerException e) {
+			e.printStackTrace();
+		}
+		
+		System.out.println(new Gson().toJson(listResultado));
+		
+		response.setStatus(200);
+		return listResultado;
+	}*/
 	
 	@RequestMapping(value="/alterarTicket")
 	public void alterarTicket(@RequestBody Ticket ticket) {
